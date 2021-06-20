@@ -3,12 +3,12 @@
 panw-nutanix-doctor.py is a tool that allows Palo Alto Network Panorama to Dynamically Quarantine Infected Guests On Nutanix environment.
 
 The workflow that panw-nutanix-doctor will take to Dynamically Quarantine Infected Guests is:
-1. Source machine initiate malicious traffic.
-2. Palo Alto Networks NGFW detect the malicious activity.
+1. Source machine initiates malicious traffic.
+2. Palo Alto Networks NGFW detects malicious activity.
 3. Palo Alto Networks NGFW share logs with Panorama.
-4. Panorama initiate API call via [HTTP profile](https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/monitoring/forward-logs-to-an-https-destination.html#) to the panw-nutanix-doctor middleware. The API call from Panorama will include the IP address of the infected workload.
-5. Using the IP address, The panw-nutanix-doctor resolves all the relevant information from Nutanix PRISM (I.e. workload uuid and spec), and attach quarantine category and value (For example quarantine:Strict)
-6. The infected workload will be isolated.
+4. Panorama initiates API calls via [HTTP profile](https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/monitoring/forward-logs-to-an-https-destination.html#) to the panw-nutanix-doctor middleware. The API call from Panorama will include the IP address of the infected workload.
+5. Using the IP address, The panw-nutanix-doctor resolves all the relevant information from Nutanix PRISM (I.e., workload UUID and spec) and attach quarantine category and value (For example, quarantine:Strict)
+6. The infected workload will be isolated and will not be able to initiate or receive any packet.
 
 Workflow Diagram:
 ![Workflow](https://raw.githubusercontent.com/mohanadelamin/panw-nutanix-doctor/master/images/workflow.png)
